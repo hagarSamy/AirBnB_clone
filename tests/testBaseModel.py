@@ -2,6 +2,7 @@ import unittest
 from datetime import datetime
 from models.base_model import BaseModel
 
+
 class TestBaseModel(unittest.TestCase):
     '''A class for testing the BaseModel class.'''
 
@@ -14,7 +15,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(base_model_instance.updated_at, datetime)
 
     def test_base_model_to_dict(self):
-        '''Tests that the to_dict method returns the correct dictionary representation.'''
+        '''Tests that the to_dict method returns the correct'''
         base_model_instance = BaseModel()
         base_model_dict = base_model_instance.to_dict()
         self.assertIsInstance(base_model_dict, dict)
@@ -23,6 +24,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn('updated_at', base_model_dict)
         self.assertIn('__class__', base_model_dict)
         self.assertEqual(base_model_dict['__class__'], 'BaseModel')
+
 
 if __name__ == '__main__':
     unittest.main()
