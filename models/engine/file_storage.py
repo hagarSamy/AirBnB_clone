@@ -42,5 +42,3 @@ class FileStorage():
                 object_dictionary = json.load(f)
             for objdict in object_dictionary.values():
                 self.new(BaseModel(**objdict))
-        else:
-            pass
