@@ -32,15 +32,15 @@ class HBNBCommand(cmd.Cmd):
         '''Creates new instance of BaseModel'''
 
         if not cName:
-            print ("** class name missing **")
+            print("** class name missing **")
             return
         if cName != "BaseModel":
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
             return
         else:
             newInstance = BaseModel()
             storage.save()
-            print (newInstance.id)
+            print(newInstance.id)
 
     def do_show(self, args):
         '''Prints the string representation of an instance'''
@@ -95,7 +95,6 @@ class HBNBCommand(cmd.Cmd):
                 myLs.append(v.__str__())
         print(myLs)
 
-
     def do_update(self, args):
         '''Updates an instance based on the class name
         and id by adding or updating attribute'''
@@ -122,6 +121,7 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
         setattr(self, args[2], args[3])
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
