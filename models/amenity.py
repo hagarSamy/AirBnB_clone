@@ -3,6 +3,7 @@
 
 from models.base_model import BaseModel
 
+
 class Amenity(BaseModel):
     '''A class that inherits from BaseModel
     Args:
