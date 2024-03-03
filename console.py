@@ -11,6 +11,7 @@ from models.review import Review
 from models.amenity import Amenity
 from models.place import Place
 from models.city import City
+from models.state import State
 
 
 class HBNBCommand(cmd.Cmd):
@@ -39,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
         if not cName:
             print("** class name missing **")
             return
-        classes = {"BaseModel": BaseModel, "User": User, "City": City, "Amenity": Amenity,
+        classes = {"BaseModel": BaseModel, "State": State, "User": User, "City": City, "Amenity": Amenity,
                    "Place": Place, "Review": Review}
         if cName not in classes.keys():
             print("** class doesn't exist **")
@@ -56,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         args = args.split()
-        classes = {"BaseModel": BaseModel, "User": User, "City": City, "Amenity": Amenity,
+        classes = {"BaseModel": BaseModel, "State": State, "User": User, "City": City, "Amenity": Amenity,
                    "Place": Place, "Review": Review}
         if args[0] not in classes.keys():
             print("** class doesn't exist **")
@@ -78,7 +79,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         args = args.split()
-        classes = {"BaseModel": BaseModel, "User": User, "City": City, "Amenity": Amenity,
+        classes = {"BaseModel": BaseModel, "State": State, "User": User, "City": City, "Amenity": Amenity,
                    "Place": Place, "Review": Review}
         if args[0] not in classes.keys():
             print("** class doesn't exist **")
@@ -100,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
 
         myLs = []
         args = args.split()
-        classes = {"BaseModel": BaseModel, "User": User, "City": City, "Amenity": Amenity,
+        classes = {"BaseModel": BaseModel, "State": State, "User": User, "City": City, "Amenity": Amenity,
                    "Place": Place, "Review": Review}
         if len(args) == 0 or (len(args) > 0 and args[0] in classes.keys()):
             allObj = storage.all()
@@ -116,7 +117,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         args = args.split()
-        classes = {"BaseModel": BaseModel, "User": User, "City": City, "Amenity": Amenity,
+        classes = {"BaseModel": BaseModel, "State": State, "User": User, "City": City, "Amenity": Amenity,
                    "Place": Place, "Review": Review}
         if args[0] not in classes.keys():
             print("** class doesn't exist **")

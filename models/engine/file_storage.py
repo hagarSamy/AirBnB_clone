@@ -8,6 +8,7 @@ from models.review import Review
 from models.amenity import Amenity
 from models.place import Place
 from models.city import City
+from models.state import State
 
 
 class FileStorage():
@@ -42,7 +43,7 @@ class FileStorage():
         '''deserializes the json file, if exists
         to objects'''
 
-        classes = {"BaseModel": BaseModel, "User": User, "City": City,
+        classes = {"BaseModel": BaseModel, "State": State, "User": User, "City": City,
                    "Amenity": Amenity, "Place": Place, "Review": Review}
         object_dictionary = {}
         if os.path.exists(FileStorage.__file_path):
