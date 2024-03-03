@@ -3,6 +3,11 @@
 
 import json
 import os
+from models.user import User
+from models.review import Review
+from models.amenity import Amenity
+from models.place import Place
+from models.city import City
 
 class FileStorage():
     '''A class that seialize and desrialize objects and files'''
@@ -36,9 +41,13 @@ class FileStorage():
         '''deserializes the json file, if exists
         to objects'''
 
+        classes = {"BaseModel": BaseModel, "User": User, "City": City, "Amenity": Amenity,
+                   "Place": Place, "Review": Review}
         object_dictionary = {}
         if os.path.exists(FileStorage.__file_path):
             with open((FileStorage.__file_path), 'r') as f:
                 object_dictionary = json.load(f)
             for objdict in object_dictionary.values():
-                self.new(BaseModel(**objdict))
+                    for k in objdict.keys():
+                        if k == '__classs__':
+                            self.new(objdict[k](**objdict))
