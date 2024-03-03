@@ -14,6 +14,9 @@ class TestStorage(unittest.TestCase):
     def test_new(self):
         B2 = BaseModel()
         self.assertIn("BaseModel." + B2.id, models.storage.all().keys())
-    
+    def test_FileStorage(self):
+        self.assertIsInstance(FileStorage._FileStorage__objects, dict)
+        self.assertIsInstance(FileStorage._FileStorage__file_path, str)
+
 if __name__ == '__main__':
     unittest.main()
