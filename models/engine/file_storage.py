@@ -36,6 +36,11 @@ class FileStorage():
         '''deserializes the json file, if exists
         to objects'''
 
+        object_dictionary = {}
         if os.path.exists(FileStorage.__file_path):
             with open((FileStorage.__file_path), 'r') as f:
-                
+                object_dictionary = json.load(f)
+            for objdict in object_dictionary.values():
+                self.new(BaseModel(**objdict))
+        else:
+            pass
