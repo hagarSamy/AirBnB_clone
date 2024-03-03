@@ -104,6 +104,8 @@ class HBNBCommand(cmd.Cmd):
         classes = {"BaseModel": BaseModel, "State": State, "User": User,
                    "City": City, "Amenity": Amenity, "Place": Place, "Review": Review}
         if len(args) == 0 or (len(args) > 0 and args[0] in classes.keys() or args[0] == "Fake"):
+            if args[0] == "Fake":
+                args[0] = ""
             allObj = storage.all()
             for v in allObj.values():
                 myLs.append(v.__str__())
