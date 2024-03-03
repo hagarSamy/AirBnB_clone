@@ -41,4 +41,4 @@ class FileStorage():
             with open((FileStorage.__file_path), 'r') as f:
                 object_dictionary = json.load(f)
             for objdict in object_dictionary.values():
-                FileStorage.new(BaseModel(**objdict))
+                self.new(BaseModel(**objdict))
