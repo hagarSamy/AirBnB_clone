@@ -107,7 +107,9 @@ class HBNBCommand(cmd.Cmd):
             allObj = storage.all()
             for v in allObj.values():
                 myLs.append(v.__str__())
-        print(myLs)
+            print(myLs)
+        else:
+            print("** class doesn't exist **")
 
     def do_update(self, args):
         '''Updates an instance based on the class name
