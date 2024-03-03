@@ -51,5 +51,6 @@ class FileStorage():
                 object_dictionary = json.load(f)
             for objdict in object_dictionary.values():
                 for k in objdict.keys():
-                    if k == '__classs__':
+                    if k == '__class__':
                         self.new(objdict[k](**objdict))
+        
