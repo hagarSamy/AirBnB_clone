@@ -9,7 +9,6 @@ from models.amenity import Amenity
 from models.place import Place
 from models.city import City
 from models.state import State
-from models.base_model import BaseModel
 
 
 class FileStorage():
@@ -40,6 +39,7 @@ class FileStorage():
             json.dump(dictionarToSer, jf)
 
     def reload(self):
+        from models.base_model import BaseModel
         '''deserializes the json file, if exists
         to objects'''
 
