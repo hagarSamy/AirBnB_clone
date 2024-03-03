@@ -20,6 +20,7 @@ class TestStorage(unittest.TestCase):
         self.assertIsInstance(FileStorage._FileStorage__file_path, str)
     def test_save(self):
         B2 = BaseModel()
+        B2.name = "Second_model"
         B2.save()
         self.assertTrue(os.path.exists("file.json"))
 if __name__ == '__main__':
