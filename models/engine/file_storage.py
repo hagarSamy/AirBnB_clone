@@ -9,6 +9,7 @@ from models.amenity import Amenity
 from models.place import Place
 from models.city import City
 
+
 class FileStorage():
     '''A class that seialize and desrialize objects and files'''
 
@@ -29,25 +30,25 @@ class FileStorage():
 
     def save(self):
         '''serialize the dict of objs to json file'''
- 
+
         dictionarToSer = {}
         for k, v in FileStorage.__objects.items():
             dictionarToSer[k] = v.to_dict()
         with open(FileStorage.__file_path, 'w') as jf:
             json.dump(dictionarToSer, jf)
-    
+
     def reload(self):
         from models.base_model import BaseModel
         '''deserializes the json file, if exists
         to objects'''
 
-        classes = {"BaseModel": BaseModel, "User": User, "City": City, "Amenity": Amenity,
-                   "Place": Place, "Review": Review}
+        classes = {"BaseModel": BaseModel, "User": User, "City": City,
+                   "Amenity": Amenity, "Place": Place, "Review": Review}
         object_dictionary = {}
         if os.path.exists(FileStorage.__file_path):
             with open((FileStorage.__file_path), 'r') as f:
                 object_dictionary = json.load(f)
             for objdict in object_dictionary.values():
-                    for k in objdict.keys():
-                        if k == '__classs__':
-                            self.new(objdict[k](**objdict))
+                for k in objdict.keys():
+                    if k == '__classs__':
+                        self.new(objdict[k](**objdict))
