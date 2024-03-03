@@ -120,7 +120,8 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4:
             print("** value missing **")
             return
-        setattr(self, args[2], args[3])
+        setattr(allinstance[key], args[2], args[3])
+        storage.save()
 
 
 if __name__ == '__main__':
