@@ -44,7 +44,8 @@ class FileStorage():
         to objects'''
 
         classes = {"BaseModel": BaseModel, "State": State, "User": User,
-                   "City": City, "Amenity": Amenity, "Place": Place, "Review": Review}
+                   "City": City, "Amenity": Amenity,
+                   "Place": Place, "Review": Review}
         object_dictionary = {}
         try:
             with open((FileStorage.__file_path), 'r') as f:
